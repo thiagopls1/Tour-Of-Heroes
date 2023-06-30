@@ -26,6 +26,13 @@ export class HeroDetailComponent {
     this.location.back();
   }
 
+  save(): void {
+    if(this.hero){
+      this.heroService.updateHero(this.hero)
+        .subscribe(() => this.goBack())
+    }
+  }
+
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
